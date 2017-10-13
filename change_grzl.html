@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>相豫网-个人资料</title>
+		<meta charset="UTF-8">
+		<!-- 优先使用 IE 最新版本和 Chrome -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+		<!-- 页面描述 -->
+		<meta name="description" content=""/>
+		<!-- 页面关键词 -->
+		<meta name="keywords" content=""/>
+		<!-- 网页作者 -->
+		<meta name="author" content=""/>
+		<!-- 搜索引擎抓取 -->
+		<meta name="robots" content="index,follow"/>
+		<!-- 为移动设备添加 viewport -->
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+				
+		<link rel="stylesheet" href="css/reset.css"/>
+		<link rel="stylesheet" href="css/style.css" />
+		<link href="css/fsgallery.css" rel="stylesheet" />
+		<link href="css/mobiscroll.custom-3.0.0-beta6.min.css" rel="stylesheet" />
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/myJs.js"></script>
+
+		<script type="text/javascript" src="js/change_headPic.js"></script>
+		<script src="js/picker.min.js"></script>
+		<script src="js/mycity2.js"></script>
+		<script src="js/mobiscroll.custom-3.0.0-beta6.min.js"></script>
+		
+		<script src="js/fs_forse.js"></script>
+
+		
+		<script>
+			window.onload = function(){
+				var deviceWidth = document.documentElement.clientWidth;
+	 			document.documentElement.style.fontSize=100*document.documentElement.clientWidth/750+'px';
+	 		}		
+		</script>
+		 
+	</head>
+	<body class="bge9e9e9">
+		<div class="login-top">
+			个人资料
+			<div class="lt-left">
+				<a id="hd_referrer" href="javascript:void(0)" ><img src="images/fanhui.png" alt="" /></a>
+			</div>
+			<div class="lt-right">
+				<button style="color: #fff;" type="submit">保存</button>
+			</div>
+		</div>
+		
+		<div class="body-con">
+			<form action="" method="post">
+				<div class="grzl-top">				
+					<div class="grzl-top-picbox" id="headPicbox" onclick="getPicture()">
+						<img id="headPic" src="images/headPic-bg.png"/>
+					</div>
+					<input type="file" name="user.photo" onchange="setImage(this,headPicbox,headPic);" id="change_photo" style="display: none"/>
+					<div class="grzl-name">
+						<input type="text" name="" id="" value="时光流转" />
+						<p>ID：12345678</p>
+						<p>
+						<span class="dt-sex-girl"></span>
+						<span class="dt-vip"></span>
+						</p>
+					</div>				
+				</div>
+				
+				<div class="grzl-maincon">
+					<div class="grzl-hd">
+						<span style="border-right: 1px solid #ccc;" class="grzl-active">基本资料</span><span>择偶选择</span>
+					</div>
+					<div class="grzl-bd">							
+						<!--选项卡1内容-->
+						<div class="grzl-bd-con grzl-bd-con1 thisclass">
+							<div class="myphoto-box clearfix">
+								
+								<!--别人打开-->
+								<div class="show-to-others dn" id='gallery'>
+									<ul class="clearfix">
+										<li><a href="images/mypic-01.jpg"><img src="images/mypic-01.jpg"/></a></li>
+										<li><a href="images/mypic-02.jpg"><img src="images/mypic-02.jpg"/></a></li>
+										<li><a href="images/mypic-03.jpg"><img src="images/mypic-03.jpg"/></a></li>
+										<li><a href="images/mypic-04.jpg"><img src="images/mypic-04.jpg"/></a></li>
+										<li><a href="images/mypic-05.jpg"><img src="images/mypic-05.jpg"/></a></li>
+										<li><a href="images/mypic-06.jpg"><img src="images/mypic-06.jpg"/></a></li>
+										<li><a href="images/mypic-07.jpg"><img src="images/mypic-07.jpg"/></a></li>
+										<li><a href="images/mypic-08.jpg"><img src="images/mypic-08.jpg"/></a></li>
+										
+									</ul>
+								</div>
+								
+								<!--自己打开-->
+								<div class="fileImg" id="fileImg">
+								    <ul>
+								        <li>
+								            <input class="upfile" type="file">
+								            <span></span>
+								        </li>
+								        <li>
+								            <input class="upfile" type="file">
+								            <span></span>
+								        </li>
+								        <li>
+								            <input class="upfile" type="file">
+								            <span></span>
+								        </li>
+								       	 <li>
+								            <input class="upfile" type="file">
+								            <span></span>
+								        </li>
+								         <li>
+								            <input class="upfile" type="file">
+								            <span></span>
+								        </li>
+								         <li>
+								            <input class="upfile" type="file">
+								            <span></span>
+								        </li>
+								         <li>
+								            <input class="upfile" type="file">
+								            <span></span>
+								        </li>
+								         <li>
+								            <input class="upfile" type="file">
+								            <span></span>
+								        </li>
+								    </ul>
+								</div>
+							</div>
+							<div class="gezl-inputbox-text">
+								<span>内心独白</span>
+								<textarea name="" rows="" cols="" placeholder="写下您的内心独白"></textarea>
+							</div>
+							<div class="gezl-inputbox">
+								<span>昵称</span>
+								<input type="text" name="" id="" value="时光流转" />
+							</div>
+							<div class="gezl-selectbox">
+								<span>性别</span>
+								<select id="sex" style="width: 4.6rem; height: 0.8rem;line-height: 0.8rem; font-size: 0.3rem; background: transparent; border: none; display: inline-block;">
+									<option value="">请选择性别</option>
+									<option value="1">女</option>
+									<option value="2">男</option>
+								</select>
+							</div>
+							<div class="gezl-inputbox">
+								<span>年龄</span>
+								<input type="text" name="" id="" value="" placeholder="--"/>
+							</div>
+							<div class="gezl-inputbox">
+								<span>身高</span>
+								<input type="text" name="" id="" value="" placeholder="--"/>
+							</div>
+							<div class="gezl-selectbox">
+								<span>学历</span>
+								<select id="sex" style="width: 4.6rem; height: 0.8rem;line-height: 0.8rem; font-size: 0.3rem; background: transparent; border: none; display: inline-block;">
+									<option value="">请选择学历</option>
+									<option value="1">高中及以下</option>
+									<option value="2">专科</option>
+									<option value="3">本科</option>
+									<option value="4">硕士研究生</option>
+									<option value="5">博士及以上</option>
+								</select>
+							</div>
+							<div class="gezl-inputbox">
+								<span>职业</span>
+								<input type="text" name="" id="" value="" placeholder="--"/>
+							</div>
+							<div class="gezl-inputbox">
+								<span>月薪</span>
+								<input type="text" name="" id="" value="" placeholder="--"/>
+							</div>
+							<div class="gezl-inputbox">
+								<span>所在地</span>
+								<a href="#" style="width: 4.6rem; height: 0.8rem;line-height: 0.8rem; font-size: 0.3rem; background: transparent; border: none; display: inline-block;"  id="sel_city">点击选取所在地</a>
+							</div>
+						</div>
+						<!--选项卡内容2-->
+						<div class="grzl-bd-con grzl-bd-con2 ">
+							<div class="gezl-inputbox">
+								<span>年龄</span>
+								<input style="width: 1rem;text-align: center;" type="text" name="" id="" value="18" />
+								<i>-</i>
+								<input style="width: 1rem;text-align: center;" type="text" name="" id="" value="22" />
+							</div>
+							<div class="gezl-inputbox">
+								<span>身高</span>
+								<input style="width: 1rem;text-align: center;" type="text" name="" id="" value="165" />
+								<i>-</i>
+								<input style="width: 1rem;text-align: center;" type="text" name="" id="" value="185" />
+							</div>
+							<div class="gezl-selectbox">
+								<span>学历</span>
+								<select id="sex" style="width: 4.6rem; height: 0.8rem;line-height: 0.8rem; font-size: 0.3rem; background: transparent; border: none; display: inline-block;">
+									<option value="">请选择学历</option>
+									<option value="1">高中及以下</option>
+									<option value="2">专科</option>
+									<option value="3">本科</option>
+									<option value="4">硕士研究生</option>
+									<option value="5">博士及以上</option>
+								</select>
+							</div>
+							<div class="gezl-inputbox">
+								<span>所在地</span>
+								<a href="#" style="width: 4.6rem; height: 0.8rem;line-height: 0.8rem; font-size: 0.3rem; background: transparent; border: none; display: inline-block;"  id="sel_city2">点击选取所在地</a>
+							</div>
+							<div class="gezl-selectbox">
+								<span>月收入</span>
+								<select id="sex" style="width: 4.6rem; height: 0.8rem;line-height: 0.8rem; font-size: 0.3rem; background: transparent; border: none; display: inline-block;">
+									<option value="">请选择收入范围</option>
+									<option value="1">3000以下</option>
+									<option value="2">3000-5000</option>
+									<option value="3">5000-8000</option>
+									<option value="4">8000-10000</option>
+									<option value="5">10000-30000</option>
+									<option value="6">30000-50000</option>
+									
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			
+		</div>
+		<script type="text/javascript">
+			
+			
+			$(function(){
+			    function tabs(tabTit,on,tabCon){
+			        $(tabTit).children().hover(function(){
+			            $(this).addClass(on).siblings().removeClass(on);
+			            var index = $(tabTit).children().index(this);
+			           	$(tabCon).children().eq(index).show().siblings().hide();
+			    	});
+				};
+			    tabs(".grzl-hd","grzl-active",".grzl-bd");
+			});
+		</script>
+		<script type="text/javascript">
+			var obj = document.getElementById('fileImg');
+			var ALi = obj.getElementsByTagName('li');
+			addFn();
+			
+			function addFn() {
+			    for (var i = 0; i < ALi.length; i++) {
+			        ALi[i].getElementsByTagName('input')[0].index = i;
+			        ALi[i].getElementsByTagName('span')[0].index = i;
+			        // 文件域改变后执行
+			        ALi[i].getElementsByTagName('input')[0].onchange = function() {
+			            ALi[this.index].getElementsByTagName('span')[0].style.display = 'block'; //删除按钮显示
+			            var oImg = document.createElement('img'); // 创建img元素
+			            ALi[this.index].getElementsByTagName('span')[0].appendChild(oImg);
+			            oImg.src = getFileUrl(this); //地址增加
+						
+						//图片高度居中
+//			            setTimeout(function() { 
+//			                oImg.style.marginTop = -oImg.offsetHeight / 2 + 'px';
+//			            }, 100);
+			        };
+			        // 删除按钮事件
+			        ALi[i].getElementsByTagName('span')[0].onclick = function() {
+			            ALi[this.index].innerHTML = '<input type="file" class="upfile" ><span></span>';
+			            addFn(); 
+			        };
+			    };
+			};
+			
+			// 创建本地地址
+			function getFileUrl(sourceId) {
+			    var url;
+			    if (navigator.userAgent.indexOf("MSIE") >= 1) { // IE 
+			        url = sourceId.value;
+			    } else if (navigator.userAgent.indexOf("Firefox") > 0) { // Firefox 
+			        url = window.URL.createObjectURL(sourceId.files.item(0));
+			    } else if (navigator.userAgent.indexOf("Chrome") > 0) { // Chrome 
+			        url = window.URL.createObjectURL(sourceId.files.item(0));
+			    }
+			    return url;
+			};
+		</script>
+		
+		<!--选择地址-->
+		
+		
+		
+			<script type="text/javascript">
+			var nameEl2 = document.getElementById('sel_city2');
+			var first2 = []; /* 省，直辖市 */
+			var second2 = []; /* 市 */
+			var third2 = []; /* 镇 */
+			
+			var selectedIndex2 = [0, 0, 0]; /* 默认选中的地区 */
+			
+			var checked2 = [0, 0, 0]; /* 已选选项 */
+			
+			function creatList2(obj, list) {
+				obj.forEach(function(item, index, arr) {
+					var temp = new Object();
+					temp.text = item.name;
+					temp.value = index;
+					list.push(temp);
+				})
+			}
+			
+			creatList2(city2, first2);
+			console.log(city2);
+			if(city2[selectedIndex2[0]].hasOwnProperty('sub')) {
+				creatList2(city2[selectedIndex2[0]].sub, second2);
+			} else {
+				second2 = [{
+					text: '',
+					value: 0
+				}];
+			}
+			
+			if(city2[selectedIndex2[0]].sub[selectedIndex2[1]].hasOwnProperty('sub')) {
+				creatList2(city2[selectedIndex2[0]].sub[selectedIndex2[1]].sub, third);
+			} else {
+				third2 = [{
+					text: '',
+					value: 0
+				}];
+			}
+			
+			var picker2 = new Picker({
+				data: [first2, second2, third2],
+				selectedIndex2: selectedIndex2,
+				title: '地址选择'
+			});
+			
+			picker2.on('picker.select', function(selectedVal2, selectedIndex2) {
+				var text12 = first2[selectedIndex2[0]].text;
+				var text22 = second2[selectedIndex2[1]].text;
+				var text32 = third2[selectedIndex2[2]] ? third2[selectedIndex2[2]].text : '';
+			
+				nameEl2.innerText = text12 + ' ' + text22 + ' ' + text32;
+			});
+			
+			picker2.on('picker.change', function(index, selectedIndex2) {
+				if(index === 0) {
+					firstChange2();
+				} else if(index === 1) {
+					secondChange2();
+				}
+			
+				function firstChange2() {
+					second2 = [];
+					third2 = [];
+					checked2[0] = selectedIndex2;
+					var firstCity2 = city2[selectedIndex2];
+					if(firstCity2.hasOwnProperty('sub')) {
+						creatList2(firstCity2.sub, second2);
+			
+						var secondCity2 = city2[selectedIndex2].sub[0]
+						if(secondCity2.hasOwnProperty('sub')) {
+							creatList2(secondCity2.sub, third2);
+						} else {
+							third2 = [{
+								text: '',
+								value: 0
+							}];
+							checked2[2] = 0;
+						}
+					} else {
+						second2 = [{
+							text: '',
+							value: 0
+						}];
+						third2 = [{
+							text: '',
+							value: 0
+						}];
+						checked2[1] = 0;
+						checked2[2] = 0;
+					}
+			
+					picker2.refillColumn(1, second2);
+					picker2.refillColumn(2, third2);
+					picker2.scrollColumn(1, 0)
+					picker2.scrollColumn(2, 0)
+				}
+			
+				function secondChange2() {
+					third2 = [];
+					checked2[1] = selectedIndex2;
+					var first_index2 = checked2[0];
+					if(city2[first_index2].sub[selectedIndex2].hasOwnProperty('sub')) {
+						var secondCity2 = city2[first_index2].sub[selectedIndex2];
+						creatList2(secondCity2.sub, third2);
+						picker2.refillColumn(2, third2);
+						picker2.scrollColumn(2, 0)
+					} else {
+						third2 = [{
+							text: '',
+							value: 0
+						}];
+						checked2[2] = 0;
+						picker2.refillColumn(2, third2);
+						picker2.scrollColumn(2, 0)
+					}
+				}
+			
+			});
+			
+			picker2.on('picker.valuechange', function(selectedVal2, selectedIndex2) {
+				console.log(selectedVal2);
+				console.log(selectedIndex2);
+			});
+			
+			nameEl2.addEventListener('click', function() {
+				picker2.show();
+			});
+		</script>
+		
+			<script type="text/javascript">
+			var nameEl1 = document.getElementById('sel_city');
+			var first = []; /* 省，直辖市 */
+			var second = []; /* 市 */
+			var third = []; /* 镇 */
+			
+			var selectedIndex = [0, 0, 0]; /* 默认选中的地区 */
+			
+			var checked = [0, 0, 0]; /* 已选选项 */
+			
+			function creatList(obj, list) {
+				obj.forEach(function(item, index, arr) {
+					var temp = new Object();
+					temp.text = item.name;
+					temp.value = index;
+					list.push(temp);
+				})
+			}
+			
+			creatList(city, first);
+			
+			if(city[selectedIndex[0]].hasOwnProperty('sub')) {
+				creatList(city[selectedIndex[0]].sub, second);
+			} else {
+				second = [{
+					text: '',
+					value: 0
+				}];
+			}
+			
+			if(city[selectedIndex[0]].sub[selectedIndex[1]].hasOwnProperty('sub')) {
+				creatList(city[selectedIndex[0]].sub[selectedIndex[1]].sub, third);
+			} else {
+				third = [{
+					text: '',
+					value: 0
+				}];
+			}
+			
+			var picker = new Picker({
+				data: [first, second, third],
+				selectedIndex: selectedIndex,
+				title: '地址选择'
+			});
+			
+			picker.on('picker.select', function(selectedVal, selectedIndex) {
+				var text1 = first[selectedIndex[0]].text;
+				var text2 = second[selectedIndex[1]].text;
+				var text3 = third[selectedIndex[2]] ? third[selectedIndex[2]].text : '';
+			
+				nameEl1.innerText = text1 + ' ' + text2 + ' ' + text3;
+			});
+			
+			picker.on('picker.change', function(index, selectedIndex) {
+				if(index === 0) {
+					firstChange();
+				} else if(index === 1) {
+					secondChange();
+				}
+			
+				function firstChange() {
+					second = [];
+					third = [];
+					checked[0] = selectedIndex;
+					var firstCity = city[selectedIndex];
+					if(firstCity.hasOwnProperty('sub')) {
+						creatList(firstCity.sub, second);
+			
+						var secondCity = city[selectedIndex].sub[0]
+						if(secondCity.hasOwnProperty('sub')) {
+							creatList(secondCity.sub, third);
+						} else {
+							third = [{
+								text: '',
+								value: 0
+							}];
+							checked[2] = 0;
+						}
+					} else {
+						second = [{
+							text: '',
+							value: 0
+						}];
+						third = [{
+							text: '',
+							value: 0
+						}];
+						checked[1] = 0;
+						checked[2] = 0;
+					}
+			
+					picker.refillColumn(1, second);
+					picker.refillColumn(2, third);
+					picker.scrollColumn(1, 0)
+					picker.scrollColumn(2, 0)
+				}
+			
+				function secondChange() {
+					third = [];
+					checked[1] = selectedIndex;
+					var first_index = checked[0];
+					if(city[first_index].sub[selectedIndex].hasOwnProperty('sub')) {
+						var secondCity = city[first_index].sub[selectedIndex];
+						creatList(secondCity.sub, third);
+						picker.refillColumn(2, third);
+						picker.scrollColumn(2, 0)
+					} else {
+						third = [{
+							text: '',
+							value: 0
+						}];
+						checked[2] = 0;
+						picker.refillColumn(2, third);
+						picker.scrollColumn(2, 0)
+					}
+				}
+			
+			});
+			
+			picker.on('picker.valuechange', function(selectedVal, selectedIndex) {
+				console.log(selectedVal);
+				console.log(selectedIndex);
+			});
+			
+			nameEl1.addEventListener('click', function() {
+				picker.show();
+			});
+		</script>
+	</body>
+</html>

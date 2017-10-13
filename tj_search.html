@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>相豫网-条件搜索</title>
+		<meta charset="UTF-8">
+		<!-- 优先使用 IE 最新版本和 Chrome -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+		<!-- 页面描述 -->
+		<meta name="description" content=""/>
+		<!-- 页面关键词 -->
+		<meta name="keywords" content=""/>
+		<!-- 网页作者 -->
+		<meta name="author" content=""/>
+		<!-- 搜索引擎抓取 -->
+		<meta name="robots" content="index,follow"/>
+		<!-- 为移动设备添加 viewport -->
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+				
+		<link rel="stylesheet" href="css/reset.css"/>
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/nav_on.css" />
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/myJs.js"></script>
+		<script>
+			window.onload = function(){
+				var deviceWidth = document.documentElement.clientWidth;
+	 			document.documentElement.style.fontSize=100*document.documentElement.clientWidth/750+'px';
+	 		}		
+		</script>
+		 
+	</head>
+	<body class="bge9e9e9">
+		<div class="login-top">
+			条件搜索
+			<div class="lt-left">
+				<a id="hd_referrer" href="javascript:void(0)"><img src="images/fanhui.png" alt="" /></a>
+			</div>
+			<div class="lt-right">
+				<a href="id_search.html">精确搜索</a>
+			</div>
+		</div>
+		<form action="" method="" class="tj-search">
+			<div class="sex">
+				<span class="tj-text">性别</span>
+				<select id="sex" style="width: 2rem; height: 0.8rem; font-size: 0.3rem; background: transparent; border: none; float:right;">
+					<option value="">请选择性别</option>
+					<option value="1">女</option>
+					<option value="2">男</option>
+				</select>
+			</div>
+			<div class="tj-age clearfix">
+				<span class="tj-text">年龄</span>
+				<span class="sui fr">&nbsp;&nbsp;岁&nbsp;</span>
+				<input class="big-age fr" type="tel" name="" id="" value="" />
+				<span class="sui fr">&nbsp;&nbsp;岁&nbsp; -&nbsp; &nbsp;</span>
+				<input class="sml-age fr" type="tel" name="" id="" value="" />			
+			</div>
+			<div class="tj-height clearfix">
+				<span class="tj-text">身高</span>
+				<span class="sui fr">&nbsp;CM</span>
+				<input class="big-age fr" type="tel" name="" id="" value="" />
+				<span class="sui fr">&nbsp;CM - &nbsp;</span>
+				<input class="sml-age fr" type="tel" name="" id="" value="" />
+			</div>
+			
+			<div class="edu clearfix">
+				<span class="tj-text">学历</span>
+				<select id="" style="width: 2rem; height: 0.8rem; font-size: 0.3rem; background: transparent; border: none; float:right;">
+					<option value="">请选择学历</option>
+					<option value="1">高中及以下</option>
+					<option value="2">专科</option>
+					<option value="3">本科</option>
+					<option value="4">硕士研究生</option>
+					<option value="5">博士及以上</option>
+				</select>
+			</div>
+			
+			<div class="edu clearfix">
+				<span class="tj-text">所在地</span>
+				<div class="address-btn fr">
+					<a href="#" id="sel_city">点击选取省市区县</a>
+				</div>
+			</div>
+			
+			<div class="edu clearfix">
+				<span class="tj-text">月收入</span>
+				<select id="" style="width: 2rem; height: 0.8rem; font-size: 0.3rem; background: transparent; border: none; float:right;">
+					<option value="">请选择收入</option>
+					<option value="1">5千以下</option>
+					<option value="2">5千-1万</option>
+					<option value="3">1万-3万</option>
+					<option value="4">3万-5万</option>
+					<option value="5">5万-10万</option>
+					<option value="6">10万以上</option>
+				</select>
+			</div>
+			
+			<button id="login-btn" onclick="" class="login-btn">搜 索</button>
+			
+			
+		</form>
+		<script src="js/picker.min.js"></script>
+		<script src="js/mycity.js"></script>
+		<script type="text/javascript">
+			var nameEl = document.getElementById('sel_city');
+			var first = []; /* 省，直辖市 */
+			var second = []; /* 市 */
+			var third = []; /* 镇 */
+			
+			var selectedIndex = [0, 0, 0]; /* 默认选中的地区 */
+			
+			var checked = [0, 0, 0]; /* 已选选项 */
+			
+			function creatList(obj, list) {
+				obj.forEach(function(item, index, arr) {
+					var temp = new Object();
+					temp.text = item.name;
+					temp.value = index;
+					list.push(temp);
+				})
+			}
+			
+			creatList(city, first);
+			
+			if(city[selectedIndex[0]].hasOwnProperty('sub')) {
+				creatList(city[selectedIndex[0]].sub, second);
+			} else {
+				second = [{
+					text: '',
+					value: 0
+				}];
+			}
+			
+			if(city[selectedIndex[0]].sub[selectedIndex[1]].hasOwnProperty('sub')) {
+				creatList(city[selectedIndex[0]].sub[selectedIndex[1]].sub, third);
+			} else {
+				third = [{
+					text: '',
+					value: 0
+				}];
+			}
+			
+			var picker = new Picker({
+				data: [first, second, third],
+				selectedIndex: selectedIndex,
+				title: '地址选择'
+			});
+			
+			picker.on('picker.select', function(selectedVal, selectedIndex) {
+				var text1 = first[selectedIndex[0]].text;
+				var text2 = second[selectedIndex[1]].text;
+				var text3 = third[selectedIndex[2]] ? third[selectedIndex[2]].text : '';
+			
+				nameEl.innerText = text1 + ' ' + text2 + ' ' + text3;
+			});
+			
+			picker.on('picker.change', function(index, selectedIndex) {
+				if(index === 0) {
+					firstChange();
+				} else if(index === 1) {
+					secondChange();
+				}
+			
+				function firstChange() {
+					second = [];
+					third = [];
+					checked[0] = selectedIndex;
+					var firstCity = city[selectedIndex];
+					if(firstCity.hasOwnProperty('sub')) {
+						creatList(firstCity.sub, second);
+			
+						var secondCity = city[selectedIndex].sub[0]
+						if(secondCity.hasOwnProperty('sub')) {
+							creatList(secondCity.sub, third);
+						} else {
+							third = [{
+								text: '',
+								value: 0
+							}];
+							checked[2] = 0;
+						}
+					} else {
+						second = [{
+							text: '',
+							value: 0
+						}];
+						third = [{
+							text: '',
+							value: 0
+						}];
+						checked[1] = 0;
+						checked[2] = 0;
+					}
+			
+					picker.refillColumn(1, second);
+					picker.refillColumn(2, third);
+					picker.scrollColumn(1, 0)
+					picker.scrollColumn(2, 0)
+				}
+			
+				function secondChange() {
+					third = [];
+					checked[1] = selectedIndex;
+					var first_index = checked[0];
+					if(city[first_index].sub[selectedIndex].hasOwnProperty('sub')) {
+						var secondCity = city[first_index].sub[selectedIndex];
+						creatList(secondCity.sub, third);
+						picker.refillColumn(2, third);
+						picker.scrollColumn(2, 0)
+					} else {
+						third = [{
+							text: '',
+							value: 0
+						}];
+						checked[2] = 0;
+						picker.refillColumn(2, third);
+						picker.scrollColumn(2, 0)
+					}
+				}
+			
+			});
+			
+			picker.on('picker.valuechange', function(selectedVal, selectedIndex) {
+				console.log(selectedVal);
+				console.log(selectedIndex);
+			});
+			
+			nameEl.addEventListener('click', function() {
+				picker.show();
+			});
+		</script>
+		
+		
+
+
+
+	</body>
+</html>

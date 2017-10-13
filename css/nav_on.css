@@ -1,0 +1,17 @@
+li#nav1-on{
+	background: url(../images/navBg-12.png) no-repeat top center;
+	background-size: 0.42rem;
+}
+li#nav2-on{
+	background: url(../images/navBg-22.png) no-repeat top center;
+	background-size: 0.42rem;
+}
+li#nav3-on{
+	background: url(../images/navBg-32.png) no-repeat top center;
+	background-size: 0.42rem;
+}
+
+li#nav4-on{
+	background: url(../images/navBg-42.png) no-repeat top center;
+	background-size: 0.42rem;
+}
